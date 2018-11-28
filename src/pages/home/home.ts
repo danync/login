@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { SigninPage } from '../signin/signin';
+import { UsuariosPage } from '../usuarios/usuarios';
 
 @Component({
   selector: 'page-home',
@@ -11,8 +12,9 @@ export class HomePage {
   registro = SigninPage;
   usuarios = [
     {correo: '',
-    contraseña: ''}
+    contrasena: ''}
   ];
+  usernames = UsuariosPage;
 
   constructor(public navCtrl: NavController,
     public alertCtrl: AlertController) {
@@ -20,45 +22,44 @@ export class HomePage {
   }
 
   Ingresar(){
-    this.usuarios.push(this.correo);
-    this.usuarios.push(this.contraseña);
-    // if (this.mail.length > 0) {
-    //   this.usuarios.push(this.mail);
-    //   this.mail = "";
-
-    //   // this.storage.set('notas2', JSON.stringify(this.notas));
+    // let index = this.usuarios.findIndex(usuarios => usuario.correo == this.correo && usuario => usuario.contrasena == this.contrasena);
+    // if (this.usuario.correo.length > 0) {
+    //   this.correo = "";
     // }
     // else {
-    //   console.log('el correo tiene 0 letras');
-    //   const alert = this.alertCtrl.create({
-    //     title: '¡Ups!',
-    //     subTitle: 'Tu correo no es válido.',
-    //     buttons: ['OK']
-    //   });
-    //   alert.present();
+    // console.log('el correo tiene 0 letras');
+    // const alert = this.alertCtrl.create({
+    // title: '¡Ups!',
+    // subTitle: 'Tu correo no es válido.',
+    // buttons: ['OK']
+    // });
+    // alert.present();
     // }
     
-    // if (this.password.length >= 8) {
+    // if (this.usuario.contrasena.length >= 8) {
 
-    //   this.password = "";
+    // this.contrasena = "";
 
-    //   // this.storage.set('notas2', JSON.stringify(this.notas));
     // }
     // else {
-    //   console.log('el correo tiene 0 letras');
-    //   const alert = this.alertCtrl.create({
-    //     title: '¡Ups!',
-    //     subTitle: 'Tu contraseña no es válida.',
-    //     buttons: ['OK']
-    //   });
-    //   alert.present();
+    // console.log('el correo tiene 0 letras');
+    // const alert = this.alertCtrl.create({
+    // title: '¡Ups!',
+    // subTitle: 'Tu contraseña no es válida.',
+    // buttons: ['OK']
+    // });
+    // alert.present();
     // }
     
   }
 
 
   Registrar(){
-    this.navCtrl.push(this.registro);
+    this.navCtrl.push(this.registro, {usuarios: this.usuarios});
+  }
+
+  Users(){
+    this.navCtrl.push(this.usernames);
   }
 
 }

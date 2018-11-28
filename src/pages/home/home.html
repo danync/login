@@ -7,17 +7,18 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list *ngFor = "let usuario of usuarios">
     <ion-list-header>Login</ion-list-header>
     <ion-item>
-      <ion-input placeholder="Correo"></ion-input>
+      <ion-input [(ngModel)] = "correo" placeholder="Correo"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="password" placeholder="Contraseña"></ion-input>
+      <ion-input [(ngModel)] = "contrasena" type="password" placeholder="Contraseña"></ion-input>
     </ion-item>
   </ion-list>
 
   <button ion-button block (click)="Ingresar()">Ingresar</button>
   <button ion-button block (click)="Registrar()">Registrarse</button>
+  <button ion-button block (click)="Users()">Ver Usuarios</button>
   
 </ion-content>
